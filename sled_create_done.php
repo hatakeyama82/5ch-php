@@ -1,3 +1,4 @@
+<a href="sled.php">はて版</a><br />
 <?php
     try{
         $sledname=$_POST['sledname'];
@@ -17,15 +18,15 @@
         $data[]=$sledname;
         $data[]=$name;
         $data[]=$text;
-        $data[]=$date;
         $stmt->execute($data);
 
         $dbh=null;
-
+        echo"作成完了";
     }
     catch(exception $e){
         print "エラー";
         exit();
     }
+    echo '<a href="sled_contents.php?sledname='.$sledname.'">戻る</a>';
+   
     ?>
-    <a href="">戻る</a>

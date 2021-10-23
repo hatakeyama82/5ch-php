@@ -1,3 +1,4 @@
+<a href="sled.php">はて版</a><br />
 <?php
 $sledname=$_POST['sledname'];
 $name=$_POST['name'];
@@ -48,7 +49,7 @@ echo '<p>以下の内容で作成します</p>';
 echo 'スレッド名: '.$sledname."<br />";
 echo '名前: '.$name."<br />";
 echo '内容: '.$text."<br />";
-echo '日時: '.$date."<br />";
+
 
 
 echo '<input type="submit" value="OK">';
