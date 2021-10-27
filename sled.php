@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body align="center">　
     <header>
        
         <a href="sled.php">はて版</a><br />
@@ -25,15 +25,17 @@
 </header>
 <br>
 <br>
-        <h2><article>はて版</article>
-        <section><p>
-            なんでもいいのだ||:3ミ
+<div class="sled">
+        <h1><article>はて版</article></h1>
+        <section><p>どんな話題でも結構です</p>
+        <p>人に迷惑のかからない範囲で楽しみましょう</p>
+</div>         
 </p></section>
         <br>
         <br>
         <a href="sled_list.php">スレッド一覧</a>
          <!--スレッド名とurl -->
-        <a href="#create">新規スレ作成</a>
+        <a href="#create">新規スレ作成</a><br />
         <!-- スレッド名、最新書き込み4件　*5 -->
         <?php
 
@@ -45,15 +47,48 @@
          $sql='insert into sled(sledname,name,text)VALUES(?,?,?)';
          $stmt = $dbh->prepare($sql);
          ?>
+         <?php
+
+$dsn='mysql:dbname=sled;host=localhost';
+$user='root';
+$password='root';
+$dbh= new PDO($dsn,$user,$password);
+$dbh->query('SET NAMES utf8');
+$sql='select DISTINCT sledname from sled where 1 limit 5';
+
+$stmt = $dbh->prepare($sql);
+$stmt->execute($data);
+
+$dbh=null;
+
+
+
+while(true)
+{
+    $rec=$stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if($rec==False)
+   {
+       break;
+   }
+ 
+  
+
+   echo '<a href="sled_contents.php?sledname='.$rec['sledname'].'">'.$rec['sledname'].'</a>';
+   
+   echo "<br />";
+ 
+}
+?>
         <form method="post" action="sled_create.php">
         <p id="create">新規スレッド作成</p>
-        <table>
+        <table align="center">
         <tr>
-            <td>スレッド名 :</td>
+            <td>スレッド名 </td>
             <td><input type="text" name="sledname"></td>
 </tr>
         <tr>
-            <td>名前 :</td>
+            <td>名前 </td>
             <td><input type="text" name="name"></td>
 </tr>
 </table>

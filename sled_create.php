@@ -1,4 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body align="center">
+    
+<div class="logo">
 <a href="sled.php">はて版</a><br />
+<br />
+<br />
+</div>
+
 <?php
 $sledname=$_POST['sledname'];
 $name=$_POST['name'];
@@ -64,3 +80,5 @@ echo '<input type="hidden" name="text" value="'.$text.'">';
 
 </div>
 </form>
+</body>
+</html>

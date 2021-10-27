@@ -7,8 +7,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body align="center">
+    
+<div class="logo">
 <a href="sled.php">はて版</a><br />
+<br />
+<br />
+</div>
+
 
 <?php
 $sledname=$_GET['sledname'];
@@ -40,27 +46,29 @@ while(true)
    
      $name=$rec['name'];
      $text=$rec['text'];
-     if($rec==False)
+     if($rec==False||$number>999)
     {
         break;
     }
-  
+    echo'<div class="res">';
+    echo'<div name="number">';
     echo ++$number;
-    echo "<br />";
+    echo'</div>';
+    echo "         ";  
     echo $name."<br />";
     echo $text."<br />";
-
+    echo'</div>';
+   
+  
 
    
  }
-    
-
-
+ 
 
  ?>
  <form method="post" action="sled_create.php">
         <p id="create">書き込み</p>
-        <table>
+        <table align="center">
       
             
          <?php
@@ -73,7 +81,7 @@ while(true)
             <td><input type="text" name="name"></td>
 </tr>
 </table>
-        <input type="text" name="text" size="80" maxlength="1000" style="height:200px;" ><br>
+        <textarea name="text" rows="8" cols="70" ></textarea><br>
         <input type="submit" value="送信">
         
 </form>
